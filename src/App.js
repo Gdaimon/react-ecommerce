@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { auth, handleUserProfile } from './firebase/utils';
 import { setCurrentUser } from './redux/User/user.actions';
 
@@ -20,7 +20,7 @@ import './default.scss';
 
 const App = props => {
 
-  const { setCurrentUser, currentUser } = props;
+  const { setCurrentUser } = props;
 
   useEffect(() => {
     const authListener = auth.onAuthStateChanged(async userAuth => {
@@ -40,7 +40,7 @@ const App = props => {
     return () => {
       authListener();
     }
-  }, [])
+  })
 
   return (
     <div className="App" >

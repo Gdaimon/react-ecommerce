@@ -1,17 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import FormLabel from '@material-ui/core/FormLabel';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import Radio from '@material-ui/core/Radio';
 import Paper from '@material-ui/core/Paper';
-import Love from './../../assets/amor.jpeg';
-import Dani from './../../assets/Dani.jpg';
-import Sonic from './../../assets/Sonic.jpeg';
-import Romantico from './../../assets/Romantico.png';
 import foto1 from './../../assets/foto1.png';
-import Carousel from 'react-material-ui-carousel'
 import './styles.scss';
 
 
@@ -29,12 +20,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SpacingGrid() {
-  const [spacing, setSpacing] = React.useState(2);
+  const [spacing] = React.useState(1);
   const classes = useStyles();
 
-  const handleChange = (event) => {
-    setSpacing(Number(event.target.value));
-  };
+
 
   return (
     <div class="directorio">
@@ -43,7 +32,7 @@ export default function SpacingGrid() {
       </p>
       <Grid container className={classes.root} >
         <Grid item xs={12}>
-          <Grid container justify="center" spacing={spacing}>
+          <Grid container justify="center">
             {[0, 1, 2].map((value) => (
               <Grid key={value} item>
                 <Paper className="prueba" elevation={3}
